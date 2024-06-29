@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require('cors');
 const dotenv = require("dotenv");
+const port = process.env.PORT || 4000;
+
 const router = require('./auth');
 const fetchmongo = require('./fetchmongo');
 const flightRouter=require('./flight')
@@ -42,8 +44,8 @@ connectToDatabase()
         app.use('/api',TicketRouter)
         // Use profile router 
         
-        app.listen(8000, () => {
-            console.log("Server is running on port 8000");
+        app.listen(port, () => {
+            console.log(`Server is running on port ${port}`);
         });
     })
     .catch(error => {
